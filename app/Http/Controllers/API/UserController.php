@@ -38,7 +38,7 @@ class UserController extends Controller
             $user = User::where('username', $request->username)->first();
             return ResponseFormatter::success($user, 'Data Berhasil di simpan');
         } catch (Throwable $err) {
-            return ResponseFormatter::error(Null, $err ,500);
+            return ResponseFormatter::error(Null, $err ,400);
         }
     }
 
@@ -77,10 +77,10 @@ class UserController extends Controller
                 $user->save();
                 return ResponseFormatter::success($data, 'Data Berhasil di Update');
             }else{
-                return ResponseFormatter::error(Null, 'Data tidak ditemukan!', 500);
+                return ResponseFormatter::error(Null, 'Data tidak ditemukan!', 400);
             }
         } catch (Throwable $err) {
-            return ResponseFormatter::error(Null, $err, 500);
+            return ResponseFormatter::error(Null, $err, 400);
         }
     }
 
