@@ -9,7 +9,7 @@ use App\Models\User;
 class HomeController extends Controller
 {
 	public function index() {
-		 $news = User::all();
-		 dd($news);
+		 $data = User::all();
+		 return response()->json($data);
 	}
 }
