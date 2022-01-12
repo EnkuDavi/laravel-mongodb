@@ -36,6 +36,7 @@ class UserController extends Controller
             ]);
 
             $user = User::where('username', $request->username)->first();
+            // return response()->json($user);
             return ResponseFormatter::success($user, 'Data Berhasil di simpan');
         } catch (Throwable $err) {
             return ResponseFormatter::error(Null, $err ,400);
